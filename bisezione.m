@@ -1,4 +1,7 @@
-function [val] = bisezione(f, a, b, tol)
+function [val, it] = bisezione(f, a, b, tol)
+    if sign(f(a))*sign(f(b)) >= 0
+        error("Intervallo non valido");
+    end
     k = 1;
     maxit = ceil(log2((b-a)/tol)-1);
     x = inf;
@@ -17,4 +20,5 @@ function [val] = bisezione(f, a, b, tol)
         k = k+1;
     end
         val = x;
+        it = k;
 end
