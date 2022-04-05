@@ -1,7 +1,6 @@
-function [val] = bisezione(f, a, b)
+function [val] = bisezione(f, a, b, tol)
     k = 1;
-    maxit = 100;
-    tol = 0;
+    maxit = ceil(log2((b-a)/tol)-1);
     x = inf;
     while k <= maxit && abs(b-a) > tol
         x = a + (b-a)/2;
